@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="我有一头小毛驴，可是我从来都不骑。">
+<meta name="description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
 <meta property="og:type" content="article">
-<meta property="og:title" content="First Night">
+<meta property="og:title" content="今天创建了个人博客">
 <meta property="og:url" content="https://github.com/zhouxuan001/2018/05/23/FirstNight/index.html">
 <meta property="og:site_name" content="周璇的个人博客">
-<meta property="og:description" content="我有一头小毛驴，可是我从来都不骑。">
+<meta property="og:description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-23T07:37:02.810Z">
+<meta property="og:updated_time" content="2018-05-23T08:46:35.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="First Night">
-<meta name="twitter:description" content="我有一头小毛驴，可是我从来都不骑。">
+<meta name="twitter:title" content="今天创建了个人博客">
+<meta name="twitter:description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
 
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>First Night | 周璇的个人博客</title>
+  <title>今天创建了个人博客 | 周璇的个人博客</title>
   
 
 
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">First Night</h1>
+          <h1 class="post-title" itemprop="name headline">今天创建了个人博客</h1>
         
 
         <div class="post-meta">
@@ -300,9 +300,18 @@
 
       
         <blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p>
+<p>今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。</p>
 </blockquote>
-
+<p>##执行<strong>hexo -d</strong>命令时报错</p>
+<p>出现以下的情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p>
+<p>原来的配置为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>将其修改成如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p>
+<h1>测试HTML代码</h1>
       
     </div>
     
@@ -386,8 +395,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -429,6 +447,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">测试HTML代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

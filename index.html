@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/23/FirstNight/" itemprop="url">First Night</a></h1>
+                <a class="post-title-link" href="/2018/05/23/FirstNight/" itemprop="url">今天创建了个人博客</a></h1>
         
 
         <div class="post-meta">
@@ -304,9 +304,18 @@
         
           
             <blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p>
+<p>今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。</p>
 </blockquote>
-
+<p>##执行<strong>hexo -d</strong>命令时报错</p>
+<p>出现以下的情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p>
+<p>原来的配置为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>将其修改成如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p>
+<h1>测试HTML代码</h1>
           
         
       
