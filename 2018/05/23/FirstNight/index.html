@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
+<meta name="description" content="今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。  执行hexo -d命令时报错出现类似以下的报错代码： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working">
 <meta property="og:type" content="article">
 <meta property="og:title" content="今天创建了个人博客">
 <meta property="og:url" content="https://github.com/zhouxuan001/2018/05/23/FirstNight/index.html">
 <meta property="og:site_name" content="周璇的个人博客">
-<meta property="og:description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
+<meta property="og:description" content="今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。  执行hexo -d命令时报错出现类似以下的报错代码： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-23T08:46:35.006Z">
+<meta property="og:updated_time" content="2018-05-23T08:55:20.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="今天创建了个人博客">
-<meta name="twitter:description" content="今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。  ##执行hexo -d命令时报错 出现以下的情况： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working di">
+<meta name="twitter:description" content="今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。  执行hexo -d命令时报错出现类似以下的报错代码： 123warning: LF will be replaced by CRLF in 2015/12/05/hello-world/index.html.The file will have its original line endings in your working">
 
 
 
@@ -300,18 +300,17 @@
 
       
         <blockquote>
-<p>今天根据网上教程创建了自己的个人博客，在这期间遇到了一些问题。</p>
+<p>今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。</p>
 </blockquote>
-<p>##执行<strong>hexo -d</strong>命令时报错</p>
-<p>出现以下的情况：</p>
+<h2 id="执行hexo-d命令时报错"><a href="#执行hexo-d命令时报错" class="headerlink" title="执行hexo -d命令时报错"></a>执行<strong>hexo -d</strong>命令时报错</h2><p>出现类似以下的报错代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p>
 <p>原来的配置为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>将其修改成如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p>
-<h1>测试HTML代码</h1>
+
       
     </div>
     
@@ -457,7 +456,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">测试HTML代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#执行hexo-d命令时报错"><span class="nav-number">1.</span> <span class="nav-text">执行hexo -d命令时报错</span></a></li></ol></div>
             
 
           </div>
