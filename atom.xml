@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>周璇的个人博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://github.com/zhouxuan001/"/>
+  <updated>2018-05-23T10:00:42.792Z</updated>
+  <id>https://github.com/zhouxuan001/</id>
+  
+  <author>
+    <name>zhou xuan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>今天创建了个人博客</title>
+    <link href="https://github.com/zhouxuan001/2018/05/23/FirstNight/"/>
+    <id>https://github.com/zhouxuan001/2018/05/23/FirstNight/</id>
+    <published>2018-05-23T07:05:06.708Z</published>
+    <updated>2018-05-23T10:00:42.792Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。</p></blockquote><h2 id="执行hexo-d命令时报错"><a href="#执行hexo-d命令时报错" class="headerlink" title="执行hexo -d命令时报错"></a>执行<strong>hexo -d</strong>命令时报错</h2><p>出现类似以下的报错代码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p><p>原来的配置为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>将其修改成如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p><h2 id="每次写完博客后需要执行-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-命令上传。"><a href="#每次写完博客后需要执行-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-命令上传。" class="headerlink" title="每次写完博客后需要执行 $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 命令上传。"></a>每次写完博客后需要执行 $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 命令上传。</h2><h2 id="博客文件地址在-source-posts-目录下。"><a href="#博客文件地址在-source-posts-目录下。" class="headerlink" title="博客文件地址在 source/_posts/目录下。"></a>博客文件地址在 source/_posts/目录下。</h2><h2 id="网络博客主题模板："><a href="#网络博客主题模板：" class="headerlink" title="网络博客主题模板："></a>网络博客主题模板：</h2><h3 id="更换模板方法-例：更换-grace-模板"><a href="#更换模板方法-例：更换-grace-模板" class="headerlink" title="更换模板方法(例：更换 grace 模板)"></a>更换模板方法(例：更换 grace 模板)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/buhuo00/hexo-theme-grace themes/grace</span><br></pre></td></tr></table></figure><p>再到_config.yml配置文件中修改模板参数theme为  theme： grace</p><h3 id="待选模板"><a href="#待选模板" class="headerlink" title="待选模板"></a>待选模板</h3><p><a href="https://www.buhuoblog.com/" target="_blank" rel="noopener">简洁型</a>: <a href="https://github.com/buhuo00/hexo-theme-grace">https://github.com/buhuo00/hexo-theme-grace</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;执行hexo-d命令时报错&quot;&gt;&lt;a href=&quot;#执行hexo-d命令时报错&quot; class=&quot;headerlink&quot; title
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://github.com/zhouxuan001/2018/05/23/hello-world/"/>
+    <id>https://github.com/zhouxuan001/2018/05/23/hello-world/</id>
+    <published>2018-05-23T06:49:17.359Z</published>
+    <updated>2018-05-23T06:49:17.359Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
