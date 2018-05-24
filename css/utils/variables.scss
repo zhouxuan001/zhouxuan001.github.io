@@ -1,0 +1,55 @@
+
+//global variables
+$body-background: #f3f5f5; //body背景色
+$font-color-base: #5b6071; //字体颜色
+$font-color-green: #40a977; //页面绿色字体
+$container-width:  60em; //容器宽度
+$border-radius-base: 0.1875em; //圆角大小
+$tags-font-color: #999;
+
+// Header
+$header:(
+    'background': #504b57,
+    'color':      #fff, 
+    'size': 	  1.25em,
+    'width': 	  $container-width,
+    'height': 	  4.375em
+);
+
+//posts
+$post: (
+    'background': #fff,
+    'border-color': #ddd
+);
+//blockquote
+$blockquote: (
+    'background': #eaf7ff,
+    'border-color': #16a085,
+    'color': #868686
+);
+
+//标题字体
+$head-font-size: (
+    'h1': 1.375em,
+    'h2': 1.25em,
+    'h3': 1.125em,
+    'h4': 1em,
+    'h5': 0.875em,
+    'h6': 0.75em
+);
+
+//code highlight
+$code: (
+    'background': #ecf0f1,
+    'code-color': #000,
+    'border-color': #cccccc,
+    'border-radius': (4em/16),
+    'line-color': #666,
+    'code-string': #4caf50,
+    'built-in': #4caf50,
+    'keyword': #f99157,
+    'title': #2288d2,
+    'marked-background': #515151,
+    'tags-color': #e2e2e2,
+    'background-gist': #eaeaea
+);
