@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="周璇的个人博客">
 <meta property="og:description" content=".main h1,.main h2,.main h3,.main h4, 	.main h5,.main h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.main p{ 		text-indent: 2em;font-size: 1.65rem;color:#666666;line-height: 1.5em; 	}">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-25T06:35:09.097Z">
+<meta property="og:updated_time" content="2018-05-25T09:43:11.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML里的数据存储分析">
 <meta name="twitter:description" content=".main h1,.main h2,.main h3,.main h4, 	.main h5,.main h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.main p{ 		text-indent: 2em;font-size: 1.65rem;color:#666666;line-height: 1.5em; 	}">
@@ -410,7 +410,7 @@
 	2.localStorage
 </h4>
 <p>
-	localStorage 和 sessionStorage 是HTML5 提供的两种在客户端存储数据的新方法。
+	localStorage 和 sessionStorage 是HTML5 提供的两种在客户端存储数据的新方法，它们能够存储的数据限制要大的多(至少5M)，可以在不影响网站性能的前提下将大量数据存储于本地。
 	其中 localStorage 存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。
 </p>
 <p>
@@ -421,7 +421,7 @@
 	3.sessionStorage
 </h4>
 <p>
-	sessionStorage 是针对一个 session (会话) 进行数据存储。当用户关闭浏览器窗口后，数据将会被删除。
+	sessionStorage 是针对一个 session (会话) 进行数据存储。当用户关闭浏览器窗口后，数据将会被实时删除。
 </p>
 <p>
 	<b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节，而且cookie的安全系数不高，有被篡改的风险。
