@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/zhouxuan001/"/>
-  <updated>2018-05-25T01:36:35.503Z</updated>
+  <updated>2018-05-25T02:06:48.546Z</updated>
   <id>https://github.com/zhouxuan001/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>关于一些动态创建的节点无法绑定事件的问题</title>
-    <link href="https://github.com/zhouxuan001/2018/05/25/JS%E5%8A%A8%E6%80%81%E8%8A%82%E7%82%B9%E7%BB%91%E5%AE%9A%E9%97%AE%E9%A2%98/"/>
-    <id>https://github.com/zhouxuan001/2018/05/25/JS动态节点绑定问题/</id>
-    <published>2018-05-25T01:29:11.885Z</published>
-    <updated>2018-05-25T01:36:35.503Z</updated>
+    <link href="https://github.com/zhouxuan001/2018/05/25/JS-dynamic-binding/"/>
+    <id>https://github.com/zhouxuan001/2018/05/25/JS-dynamic-binding/</id>
+    <published>2018-05-25T02:02:09.000Z</published>
+    <updated>2018-05-25T02:06:48.546Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="在我们html页面中有时候一些dom元素节点例如一些页面加载的新闻公告列表如下图是需要通过ajax请求接口数据动态创建的而当我们想在js中想为这些节点绑定事件如clickhover等时便会出现无法绑定的情况使用windowonload方法在页面加载后才执行也不行"><a class="markdownIt-Anchor" href="#在我们html页面中有时候一些dom元素节点例如一些页面加载的新闻公告列表如下图是需要通过ajax请求接口数据动态创建的而当我们想在js中想为这些节点绑定事件如clickhover等时便会出现无法绑定的情况使用windowonload方法在页面加载后才执行也不行"></a> 在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的，而当我们想在JS中想为这些节点绑定事件（如：click,hover…等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="在我们html页面中有时候一些dom元素节点例如一些页面加载的新闻公告列表如下图是需要通过ajax请求接口数据动态创建的而当我们想在js中想为这些节点绑定事件如clickhover等时便会出现无法绑定的情况使用windowonload方法在页面加载后才执行也不行"><a class="markdownIt-Anchor" href="#在我们html页面中有时候一些dom元素节点例如一些页面加载的新闻公告列表如下图是需要通过ajax请求接口数据动态创建的而当我们想在js中想为这些节点绑定事件如clickhover等时便会出现无法绑定的情况使用windowonload方法在页面加载后才执行也不行"></a> 在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的，而当我们想在JS中想为这些节点绑定事件（如：click,hover…等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。</h2><p><img src="/zhouxuan001/2018/05/25/JS-dynamic-binding/new_list.png" alt="新闻公告列表图片"></p>]]></content>
     
     <summary type="html">
     
