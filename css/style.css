@@ -4229,14 +4229,14 @@ img.img-rotate,
 
 img.img-rotate:hover,
 .img-rotate:hover img {
-  transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
+  transform: scale(1.4);
+  -ms-transform: scale(1.4);
   /* IE 9 */
-  -moz-transform: rotate(360deg);
+  -moz-transform: scale(1.4);
   /* Firefox */
-  -webkit-transform: rotate(360deg);
+  -webkit-transform: scale(1.4);
   /* Safari and Chrome */
-  -o-transform: rotate(360deg);
+  -o-transform: scale(1.4);
 }
 
 /*img-burn*/
@@ -5962,7 +5962,7 @@ body.no-sidebar .sidebar {
 
 .widget .widget-title {
   font-size: 18px;
-  color: #000;
+  color: #257D00;
 }
 
 .widget time {
@@ -5981,8 +5981,18 @@ body.no-sidebar .sidebar {
   list-style: none;
 }
 
+.widget a{
+	color: #87714E;
+}
+.widget a:hover{
+	color: #E89612;
+}
+
 .widget .category-link {
-  color: #0a6ebd;
+  color: #494683;
+}
+.widget .category-link:hover{
+  color: #A40D0D;
 }
 
 .category-list-count,

@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://github.com/2018/05/25/%E6%B5%85%E6%9E%90HTML%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
-    <lastmod>2018-05-25T09:43:11.970Z</lastmod>
-    <data>
-        <display>
-        <title>HTML里的数据存储分析</title>
-        <pubTime>2018-05-25T05:53:52.000Z</pubTime>
-        
-        <tag>前端开发</tag>
-         
-         
-           
-             
-              <breadCrumb title="JS" url="https://github.com/categories/JS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://github.com/2018/05/25/JS%E5%8A%A8%E6%80%81%E8%8A%82%E7%82%B9%E7%BB%91%E5%AE%9A/</loc>
-    <lastmod>2018-05-25T05:50:04.342Z</lastmod>
+    <lastmod>2018-05-26T01:29:08.917Z</lastmod>
     <data>
         <display>
         <title>关于一些动态创建的节点无法绑定事件的问题</title>
@@ -45,11 +25,31 @@
     
   <url>
     <loc>https://github.com/2018/05/25/JS%E7%9B%91%E5%90%AC%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5/</loc>
-    <lastmod>2018-05-25T05:49:11.645Z</lastmod>
+    <lastmod>2018-05-26T01:29:03.272Z</lastmod>
     <data>
         <display>
         <title>JS监听中文输入</title>
         <pubTime>2018-05-25T03:28:47.000Z</pubTime>
+        
+        <tag>前端开发</tag>
+         
+         
+           
+             
+              <breadCrumb title="JS" url="https://github.com/categories/JS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://github.com/2018/05/25/%E6%B5%85%E6%9E%90HTML%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
+    <lastmod>2018-05-26T01:28:56.915Z</lastmod>
+    <data>
+        <display>
+        <title>HTML里的数据存储分析</title>
+        <pubTime>2018-05-25T05:53:52.000Z</pubTime>
         
         <tag>前端开发</tag>
          
