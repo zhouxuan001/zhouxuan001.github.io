@@ -18,18 +18,18 @@
   
   
   <title>HTML里的数据存储分析 | Hexo</title>
-  <meta name="description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+  <meta name="description" content="在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。 	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。   	那么，这几种数据存储方式之间有什么区别呢？让我们来了解一下。   	1.cookie   	cookie是什么?cookie就是一段文">
 <meta name="keywords" content="前端开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML里的数据存储分析">
 <meta property="og:url" content="https://github.com/2018/05/25/浅析HTML数据存储/index.html">
 <meta property="og:site_name" content="周璇的个人博客">
-<meta property="og:description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+<meta property="og:description" content="在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。 	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。   	那么，这几种数据存储方式之间有什么区别呢？让我们来了解一下。   	1.cookie   	cookie是什么?cookie就是一段文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-26T01:28:56.915Z">
+<meta property="og:updated_time" content="2018-05-26T08:06:47.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML里的数据存储分析">
-<meta name="twitter:description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+<meta name="twitter:description" content="在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。 	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。   	那么，这几种数据存储方式之间有什么区别呢？让我们来了解一下。   	1.cookie   	cookie是什么?cookie就是一段文">
   <!-- Canonical links -->
   <link rel="canonical" href="https://github.com/2018/05/25/浅析HTML数据存储/index.html">
   
@@ -379,16 +379,7 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <style type="text/css">
-	.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,
-	.markdown-body h5,.markdown-body h6{
-		text-indent: 2em;color:#4f4f4f;line-height: 1.5em;
-	}
-	.markdown-body p{
-		text-indent: 2em;font-size: 1.65rem;color:#666666;line-height: 1.5em;
-	}
-</style>
-<h4>
+        <h4>
 	在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。
 	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。
 </h4>
@@ -403,29 +394,29 @@
 	一般来说用其存储的数据有比如：名字、密码、日期...等信息。cookie存储的数据能在客户端上保留相当长的时间。
 </p>
 <p>
-	<b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节，而且cookie的安全系数不高，有被篡改的风险。
+	<b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节(4kb)，而且cookie的安全系数不高，有被篡改的风险。
 	不过其好处是几乎支持所有浏览器。
 </p>
 <h4>
-	2.localStorage
+	2.localStorage 和 sessionStorage
 </h4>
+<div class="passages"><!--passages：段落专用div类标签-->
 <p>
-	localStorage 和 sessionStorage 是HTML5 提供的两种在客户端存储数据的新方法，它们能够存储的数据限制要大的多(至少5M)，可以在不影响网站性能的前提下将大量数据存储于本地。
-	其中 localStorage 存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。
+	localStorage和sessionStorage是HTML5 提供的两种在客户端存储数据的新方法。
+	主要目的是为了克服由cookie所带来的一些限制，当数据需要被严格控制在客户端时，不需要持续的将数据发回服务器。
+	同时它们能够存储的数据大小一般都是：5MB，可以在不影响网站性能的前提下将大量数据存储于本地。
 </p>
 <p>
-	<b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节，而且cookie的安全系数不高，有被篡改的风险。
-	不过其好处是几乎支持所有浏览器。
-</p>
-<h4>
-	3.sessionStorage
-</h4>
-<p>
-	sessionStorage 是针对一个 session (会话) 进行数据存储。当用户关闭浏览器窗口后，数据将会被实时删除。
+	localStorage是本地存储，它的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。除非主动删除数据，否则数据永远不会消失。
 </p>
 <p>
-	<b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节，而且cookie的安全系数不高，有被篡改的风险。
-	不过其好处是几乎支持所有浏览器。
+	sessionStorage是会话存储，它是针对一个session(会话) 进行数据存储，它的生命周期仅在当前会话下有效。当用户关闭浏览器窗口后，数据将会被实时删除。
+</p>
+</div>
+<p>
+	<b>分析：</b>localStorage和sessionStorage的存储空间更大；
+	数据不会传送到服务器，减少了客户端和服务器端的交互，节省了网络流量；
+	同时数据不发送到服务器端，不会担心数据被截获，安全性相对于cookie更高一些。
 </p>
 <hr>
 <p style="font-size: 2rem;font-weight:600;text-align:center;">

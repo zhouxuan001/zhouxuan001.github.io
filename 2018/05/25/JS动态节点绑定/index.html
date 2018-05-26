@@ -18,19 +18,19 @@
   
   
   <title>关于一些动态创建的节点无法绑定事件的问题 | Hexo</title>
-  <meta name="description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+  <meta name="description" content="在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的， 	而当我们想在JS中想为这些节点绑定事件（如：click,hover...等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。    解决办法：  	使用JQ提供的.on()和.delegate()方法可以解决解决此问题，给">
 <meta name="keywords" content="前端开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于一些动态创建的节点无法绑定事件的问题">
 <meta property="og:url" content="https://github.com/2018/05/25/JS动态节点绑定/index.html">
 <meta property="og:site_name" content="周璇的个人博客">
-<meta property="og:description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+<meta property="og:description" content="在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的， 	而当我们想在JS中想为这些节点绑定事件（如：click,hover...等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。    解决办法：  	使用JQ提供的.on()和.delegate()方法可以解决解决此问题，给">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/2018/05/25/JS动态节点绑定/new_list.png">
-<meta property="og:updated_time" content="2018-05-26T01:29:08.917Z">
+<meta property="og:updated_time" content="2018-05-26T08:03:28.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于一些动态创建的节点无法绑定事件的问题">
-<meta name="twitter:description" content=".markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4, 	.markdown-body h5,.markdown-body h6{ 		text-indent: 2em;color:#4f4f4f;line-height: 1.5em; 	} 	.markdown-body p{ 		text-inden">
+<meta name="twitter:description" content="在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的， 	而当我们想在JS中想为这些节点绑定事件（如：click,hover...等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。    解决办法：  	使用JQ提供的.on()和.delegate()方法可以解决解决此问题，给">
 <meta name="twitter:image" content="https://github.com/2018/05/25/JS动态节点绑定/new_list.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://github.com/2018/05/25/JS动态节点绑定/index.html">
@@ -381,16 +381,7 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <style type="text/css">
-	.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,
-	.markdown-body h5,.markdown-body h6{
-		text-indent: 2em;color:#4f4f4f;line-height: 1.5em;
-	}
-	.markdown-body p{
-		text-indent: 2em;font-size: 1.65rem;color:#666666;line-height: 1.5em;
-	}
-</style>
-<h4>
+        <h4>
 	在我们HTML页面中有时候一些DOM元素节点（例如：一些页面加载的新闻公告列表[如下图]）是需要通过AJAX请求接口数据动态创建的，
 	而当我们想在JS中想为这些节点绑定事件（如：click,hover...等）时便会出现无法绑定的情况，使用window.onload方法在页面加载后才执行也不行。
 </h4>
