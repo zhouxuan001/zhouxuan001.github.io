@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/"/>
-  <updated>2018-05-26T08:06:47.342Z</updated>
+  <updated>2018-05-26T09:30:16.981Z</updated>
   <id>https://github.com/</id>
   
   <author>
@@ -17,23 +17,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>HTML里的数据存储分析</title>
-    <link href="https://github.com/2018/05/25/%E6%B5%85%E6%9E%90HTML%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
-    <id>https://github.com/2018/05/25/浅析HTML数据存储/</id>
-    <published>2018-05-25T05:53:52.000Z</published>
-    <updated>2018-05-26T08:06:47.342Z</updated>
+    <title>使用jQuery中hover事件时遇到的一个小问题</title>
+    <link href="https://github.com/2018/05/26/hover%E4%BA%8B%E4%BB%B6%E9%81%87%E5%88%B0%E7%9A%84%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
+    <id>https://github.com/2018/05/26/hover事件遇到的小问题/</id>
+    <published>2018-05-26T08:52:00.000Z</published>
+    <updated>2018-05-26T09:30:16.981Z</updated>
     
-    <content type="html"><![CDATA[<h4>在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。</h4><h4>那么，这几种数据存储方式之间有什么区别呢？让我们来了解一下。</h4><h4>1.cookie</h4><p>cookie是什么?cookie就是一段文本，它存储在客户端（通常来说是浏览器），目前为各大主流浏览器存储数据所用。一般来说用其存储的数据有比如：名字、密码、日期...等信息。cookie存储的数据能在客户端上保留相当长的时间。</p><p><b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节(4kb)，而且cookie的安全系数不高，有被篡改的风险。不过其好处是几乎支持所有浏览器。</p><h4>2.localStorage 和 sessionStorage</h4><div class="passages"><!--passages：段落专用div类标签--><p>localStorage和sessionStorage是HTML5 提供的两种在客户端存储数据的新方法。主要目的是为了克服由cookie所带来的一些限制，当数据需要被严格控制在客户端时，不需要持续的将数据发回服务器。同时它们能够存储的数据大小一般都是：5MB，可以在不影响网站性能的前提下将大量数据存储于本地。</p><p>localStorage是本地存储，它的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。除非主动删除数据，否则数据永远不会消失。</p><p>sessionStorage是会话存储，它是针对一个session(会话) 进行数据存储，它的生命周期仅在当前会话下有效。当用户关闭浏览器窗口后，数据将会被实时删除。</p></div><p><b>分析：</b>localStorage和sessionStorage的存储空间更大；数据不会传送到服务器，减少了客户端和服务器端的交互，节省了网络流量；同时数据不发送到服务器端，不会担心数据被截获，安全性相对于cookie更高一些。</p><hr><p style="font-size: 2rem;font-weight:600;text-align:center;">END</p>]]></content>
+    <content type="html"><![CDATA[<p>在jQuery中有一个hover()方法，它可以实现模拟css中：hover这个伪类的效果。</p><p>css伪类写法如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">a:hover&#123;  </span><br><span class="line">    color: #ccc;  </span><br><span class="line">&#125;  </span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure><p>jQuery中hover()方法如下 ：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(&quot;a&quot;).hover(function()&#123;  </span><br><span class="line">    $(this).css(&#123;&quot;color&quot;:&quot;#ccc&quot;&#125;);  </span><br><span class="line">    console.log(1);  </span><br><span class="line">&#125;) </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>如上所示，两种方法都可以完美的实现我们想要的效果。</p><p>但是，在这其中其实还隐藏着一个很难发现的bug。</p><p>如上，在hover()这个函数中，我们写了一个function方法，但是我们不知道的是，我们写在这个function中的代码其实一直都会被重复执行两次。它在鼠标移入的时候执行了一次，移出的时候又会执行一次(通过控制台查看可以看到我们代码中的console.log(1)中的1总共被输出了两次)。</p><p>而我们的本意是只想让它在鼠标移入的时候执行我们的代码，这与我们想要的效果不一样，那么这到底是什么原因导致的呢？</p><p>搜索官方jQuery文档中hover()方法的说明我们就会发现，其实这是jQuery中hover()内置方法的问题。jQuery中的hover()方法中一共封装有两个function函数，第一个是在移入时执行，第二个是在移出时执行的，而当我们像上面一样只写了一个function函数的时候，它就会默认这个function函数就是我们想让它在移入和移出时都被执行的函数，也就相当于将这个函数执行了两遍。</p><p>当然，这个bug对于执行一些普通的效果是没什么影响的。但是，当触及到跟时间有关的一些动画效果（例如：jQuery中的animate()函数）的时候，就会出现问题。如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(&quot;.box&quot;).hover(function()&#123;  </span><br><span class="line">    var this_h=$(this).height()+50; </span><br><span class="line">    $(this).animate(&#123;&quot;height&quot;:this_h+&quot;px&quot;&#125;,1000);//每次高度在上一次数值的基础上用动画形式增加50 </span><br><span class="line">&#125;)  </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>在上面的代码中，我们想要实现的效果是，当鼠标移入到class为box的这个元素的时候，我们先获取它的高度，再将这个高度数值增加50赋予一个变量this_h，然后用jQuery内置的animate()动画方法使这个元素1000毫秒内高度在原先的基础上增加50px。之后其它每次移入时都将box这个元素的高度在原先的基础上增加50，下次再移入，再增加50的高度。但是实际执行效果却是：一开始移入时，增加了50的高度，然后移出的时候，又增加了50高度，之后再次移入移出又陆续增加了100的高度。</p><p>那这样的话明显不对啊，那么，怎么解决这个问题呢？</p><p>很简单，我们在hover事件中写入两个function函数就好了，其中第一个是我们要让它在移入的时候执行的效果，第二个是让它在移出的时候执行的效果。像我们上面这种情况的话就可以在第二个函数里面什么都不写就好了，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">$(&quot;.box&quot;).hover(function()&#123;  </span><br><span class="line">    var this_h=$(this).height()+50;</span><br><span class="line">    $(this).animate(&#123;&quot;height&quot;:this_h+&quot;px&quot;&#125;,1000);//每次高度在上一次数值的基础上用动画形式增加50 </span><br><span class="line">&#125;,function()&#123;  </span><br><span class="line">    //我是第二个函数，什么都不写的时候，在移出的时候hover方法什么都不会执行。  </span><br><span class="line">&#125;)  </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>当然，像这些效果的话，其实也有很多别的方法可以完成的，比如我们也可以使用jQuery中的一些其他鼠标事件（例如：onmouseover、onmouseout、onmouseenter、onmouseleave等）来实现，没必要一味地使用hover()来进行事件的编写。</p><hr><p style="font-size: 2rem;font-weight:600;text-align:center;">END</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h4&gt;
+        &lt;p&gt;
+	在jQuery中有一个hover()方法，它可以实现模拟css中：hover这个伪类的效果。
+&lt;/p&gt;
+&lt;p&gt;
+	css伪类写法如下：
+&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="jQuery" scheme="https://github.com/categories/jQuery/"/>
+    
+    
+      <category term="前端开发" scheme="https://github.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML里的数据存储分析</title>
+    <link href="https://github.com/2018/05/25/%E6%B5%85%E6%9E%90HTML%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    <id>https://github.com/2018/05/25/浅析HTML数据存储/</id>
+    <published>2018-05-25T05:53:52.000Z</published>
+    <updated>2018-05-26T08:29:25.287Z</updated>
+    
+    <content type="html"><![CDATA[<h4 style="margin-bottom:0px;">在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。</h4><h4 style="margin-top:0px;">那么，这几种数据存储方式之间有什么区别呢？让我们来了解一下。</h4><h4>1.cookie</h4><p>cookie是什么?cookie就是一段文本，它存储在客户端（通常来说是浏览器），目前为各大主流浏览器存储数据所用。一般来说用其存储的数据有比如：名字、密码、日期...等信息。cookie存储的数据能在客户端上保留相当长的时间。</p><p><b>分析：</b>用cookie存储的数据有大小限制，一般不可超过4096 个字节(4kb)，而且cookie的安全系数不高，有被篡改的风险。不过其好处是几乎支持所有浏览器。</p><h4>2.localStorage 和 sessionStorage</h4><div class="passages"><!--passages：段落专用div类标签--><p>localStorage和sessionStorage是HTML5 提供的两种在客户端存储数据的新方法。主要目的是为了克服由cookie所带来的一些限制，当数据需要被严格控制在客户端时，不需要持续的将数据发回服务器。同时它们能够存储的数据大小一般都是：5MB，可以在不影响网站性能的前提下将大量数据存储于本地。</p><p>localStorage是本地存储，它的生命周期是永久的，关闭页面或浏览器之后localStorage中的数据也不会消失。除非主动删除数据，否则数据永远不会消失。</p><p>sessionStorage是会话存储，它是针对一个session(会话) 进行数据存储，它的生命周期仅在当前会话下有效。当用户关闭浏览器窗口后，数据将会被实时删除。</p></div><p><b>分析：</b>localStorage和sessionStorage的存储空间更大；数据不会传送到服务器，减少了客户端和服务器端的交互，节省了网络流量；同时数据不发送到服务器端，不会担心数据被截获，安全性相对于cookie更高一些。</p><hr><p style="font-size: 2rem;font-weight:600;text-align:center;">END</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 style=&quot;margin-bottom:0px;&quot;&gt;
 	在前端开发工作中，常用的数据存储有三种，分别是cookie，localStorage和sessionStorage。
-	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStorage则是HTML5中所提供的本地存储。
-&lt;/h4&gt;
-
+	其中，cookie是存储在浏览器的一段文本，而localStorage和sessionStor
       
     
     </summary>
