@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>JS监听中文输入 | Hexo</title>
-  <meta name="description" content="当时是在做 	Wes Bos的 	javascript30的一个 	挑战。 	在做第六个项目（根据输入框实时调用AJAX古诗匹配）时，当我们输入中文拼音，还在拼音字符状态未选择成中文时，一直在执行我编写的事件监听处理函数（当输入框里的值有变化时执行此函数， 	调用AJAX在页面显示数据里包含这些字的古诗）。 	而我想要的是在我们输入拼音未完成中文选择时，不让其执行我们的监听处理函数， 	只有选">
-<meta name="keywords" content="JS">
+  <title>手把手教你搭建博客 | Hexo</title>
+  <meta name="description" content="前言：我今天新创建了属于自己的博客，还是很简单的，接下来让我来教大家怎么搭建博客吧！   	你们怕是群傻子哦，什么都点进来看哦！想看的话有种那就看完哦！  1234567891.我没有想到一个人竟然如此的纯真，而且是很傻很天真哦！2.你的长相很提神!3.你需要回炉重造!4.毕竟这也不是一个人贱人爱的社会，你还是收敛一点的好。5.你的智商和喜马拉雅山的氧气一样，淡薄。6.给你剑仙你不当，赐你剑神">
+<meta name="keywords" content="你们怕是傻子哦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS监听中文输入">
-<meta property="og:url" content="https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/index.html">
+<meta property="og:title" content="手把手教你搭建博客">
+<meta property="og:url" content="https://zhouxuan001.github.io/2018/06/04/手把手教你搭建博客/index.html">
 <meta property="og:site_name" content="周璇的个人博客">
-<meta property="og:description" content="当时是在做 	Wes Bos的 	javascript30的一个 	挑战。 	在做第六个项目（根据输入框实时调用AJAX古诗匹配）时，当我们输入中文拼音，还在拼音字符状态未选择成中文时，一直在执行我编写的事件监听处理函数（当输入框里的值有变化时执行此函数， 	调用AJAX在页面显示数据里包含这些字的古诗）。 	而我想要的是在我们输入拼音未完成中文选择时，不让其执行我们的监听处理函数， 	只有选">
+<meta property="og:description" content="前言：我今天新创建了属于自己的博客，还是很简单的，接下来让我来教大家怎么搭建博客吧！   	你们怕是群傻子哦，什么都点进来看哦！想看的话有种那就看完哦！  1234567891.我没有想到一个人竟然如此的纯真，而且是很傻很天真哦！2.你的长相很提神!3.你需要回炉重造!4.毕竟这也不是一个人贱人爱的社会，你还是收敛一点的好。5.你的智商和喜马拉雅山的氧气一样，淡薄。6.给你剑仙你不当，赐你剑神">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/20180518131816676.jpg">
-<meta property="og:updated_time" content="2018-06-05T02:42:16.885Z">
+<meta property="og:updated_time" content="2018-06-05T03:22:42.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS监听中文输入">
-<meta name="twitter:description" content="当时是在做 	Wes Bos的 	javascript30的一个 	挑战。 	在做第六个项目（根据输入框实时调用AJAX古诗匹配）时，当我们输入中文拼音，还在拼音字符状态未选择成中文时，一直在执行我编写的事件监听处理函数（当输入框里的值有变化时执行此函数， 	调用AJAX在页面显示数据里包含这些字的古诗）。 	而我想要的是在我们输入拼音未完成中文选择时，不让其执行我们的监听处理函数， 	只有选">
-<meta name="twitter:image" content="https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/20180518131816676.jpg">
+<meta name="twitter:title" content="手把手教你搭建博客">
+<meta name="twitter:description" content="前言：我今天新创建了属于自己的博客，还是很简单的，接下来让我来教大家怎么搭建博客吧！   	你们怕是群傻子哦，什么都点进来看哦！想看的话有种那就看完哦！  1234567891.我没有想到一个人竟然如此的纯真，而且是很傻很天真哦！2.你的长相很提神!3.你需要回炉重造!4.毕竟这也不是一个人贱人爱的社会，你还是收敛一点的好。5.你的智商和喜马拉雅山的氧气一样，淡薄。6.给你剑仙你不当，赐你剑神">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/index.html">
+  <link rel="canonical" href="https://zhouxuan001.github.io/2018/06/04/手把手教你搭建博客/index.html">
   
     <link rel="alternate" href="/atom.xml" title="周璇的个人博客" type="application/atom+xml">
   
@@ -52,7 +50,7 @@
 </head>
 
 
-<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center theme-purple no-sidebar" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -347,14 +345,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-JS监听中文输入" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-手把手教你搭建博客" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      JS监听中文输入
+      手把手教你搭建博客
     </h1>
   
 
@@ -362,70 +360,40 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/05/25/JS监听中文输入/" class="article-date">
-	  <time datetime="2018-05-25T03:28:47.000Z" itemprop="datePublished">2018-05-25</time>
+	<a href="/2018/06/04/手把手教你搭建博客/" class="article-date">
+	  <time datetime="2018-06-04T07:00:00.000Z" itemprop="datePublished">2018-06-04</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+    <a class="article-category-link" href="/categories/玩一哈/">玩一哈</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/JS/">JS</a>
+	<a class="article-tag-link" href="/tags/你们怕是傻子哦/">你们怕是傻子哦</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/05/25/JS监听中文输入/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/04/手把手教你搭建博客/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <h4>
-	当时是在做
-	<a href="https://wesbos.com/" target="_blank">Wes Bos</a>的
-	<a href="https://javascript30.com/" target="_blank">javascript30</a>的一个
-	<span style="color:#333333;background-color:rgb(255,255,255);">挑战</span>。
-	在做第六个项目（根据输入框实时调用AJAX古诗匹配）时，当我们输入中文拼音，还在拼音字符状态未选择成中文时，一直在执行我编写的事件监听处理函数（当输入框里的值有变化时执行此函数，
-	<strong>调用AJAX在页面显示数据里包含这些字的古诗</strong>）。
-	而我想要的是在我们输入拼音未完成中文选择时，不让其执行我们的监听处理函数，
-	只有选择完中文后才去执行调用AJAX<strong>判断有没有包含输入的这些字的古诗。
-</strong></h4>
-<br>
-<p style="color: #ff6600;">
-	古诗匹配项目效果图如下：
-</p>
-<br>
-<p><img src="/2018/05/25/JS监听中文输入/20180518131816676.jpg" alt="古诗词输入搜索匹配"></p>
-<br>
-<p style="color: #ff6600;">
-	此问题解决方法如下：
-</p>
-<br>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--HTML代码片段--&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; id=&quot;this_input&quot; placeholder=&quot;中文输入未完成时不执行事件&quot; /&gt;  </span><br><span class="line">&lt;script src=&quot;http://code.jquery.com/jquery-1.8.3.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;  </span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </span><br><span class="line">        $(&apos;#this_input&apos;).on(&apos;input propertychange&apos;, function () &#123;//input propertychange 当输入框里的值有变化时执行此函数  </span><br><span class="line">            if ($(this).prop(&apos;cnStart&apos;)) return;//如果正在执行中文输入时，此值为true，执行return=&gt;下面代码不执行  </span><br><span class="line">            console.log(&apos;当前输入：&apos; + $(this).val());  </span><br><span class="line">            //此处执行AJAX请求判断请求的数据中有没有包含输入的这些字的古诗  </span><br><span class="line">            //如果有，就将所有包含这些字的诗排列出来  </span><br><span class="line">        &#125;).on(&apos;compositionstart&apos;, function () &#123;//compositionstart 当输入框有非直接的文字输入时触发(如：输入拼音在待选状态时)  </span><br><span class="line">            $(this).prop(&apos;cnStart&apos;, true);  </span><br><span class="line">            console.log(&apos;正在中文输入&apos;);//将 cnStart 变为 true，此处执行完后会跳到  </span><br><span class="line">        &#125;).on(&apos;compositionend&apos;, function () &#123;//compositionend 当输入框有直接的文字输入时触发(如：输入拼音后完成了中文选择时)  </span><br><span class="line">            $(this).prop(&apos;cnStart&apos;, false);  </span><br><span class="line">            console.log(&apos;完成中文输入&apos;);  </span><br><span class="line">        &#125;);  </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h3 style="text-indent: 0;">
+	前言：我今天新创建了属于自己的博客，还是很简单的，接下来让我来教大家怎么搭建博客吧！
+</h3>
 <p>
-	当我们开始进行input的输入改变了input框里的值时，js会监听到input propertychange事件，
-	执行判断(一开始时$(this).prop('cnStart')的值我们没有定义，为undefined，
-	在监听了compositionstart和compositionend事件后会相应变为true和false，非true时不会进行return)，
-	再输出文本，接下来此时会执行此函数中其它的一些操作(AJAX请求...)。
+	你们怕是群傻子哦，什么都点进来看哦！想看的话有种那就看完哦！
 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.我没有想到一个人竟然如此的纯真，而且是很傻很天真哦！</span><br><span class="line">2.你的长相很提神!</span><br><span class="line">3.你需要回炉重造!</span><br><span class="line">4.毕竟这也不是一个人贱人爱的社会，你还是收敛一点的好。</span><br><span class="line">5.你的智商和喜马拉雅山的氧气一样，淡薄。</span><br><span class="line">6.给你剑仙你不当，赐你剑神你不做，非死皮赖脸哭着喊着要做剑人！真是的，何必呢？！</span><br><span class="line">7.你长得很有创意，但我知道丑并不是你的本意。90岁以上的见了蹬腿倒地，9岁以下见了惊奇不已。希望上天不要发脾气，希望你勇敢的活下去。用你的丑来衬托世界的美丽。</span><br><span class="line">8.我以为你只是1和3中间的数，没想到你还是1和3俩数的组合。</span><br><span class="line">9.低下头看看你裤裆里是啥，再和你哥哥说话。</span><br></pre></td></tr></table></figure>
 <p>
-	而当我们输入框输入的文字还在待选状态时（如：输入拼音未选择完成时），便会触发compositionstart事件，
-	此时我们通过jquery的prop()方法给这个input元素添加自定义属性（cnStart：自定义名称，表示中文输入开始）和值（true），执行输出语句。
-	此时执行完compositionstart事件后，因为输入框内文字有发生变化，会再去调用上面的input propertychange事件=>进行判断，
-	此时$(this).prop('cnStart')的值为true，会执行return语句，因此便会截断下面的所有操作，使其不会去执行。
-</p>
-<p>
-	而当我们输入框输入的文字不在待选状态后（如：输入拼音后完成了中文选择时），便会触发compositionend事件，
-	此时我们再将cnStart这个自定义属性设置为false，代表我们已经完成了中文输入，执行输出语句。此时执行完了compositionend事件，
-	同上会再去调用input propertychange事件=>进行判断，此时$(this).prop('cnStart')的值为false，
-	不会执行return语句，那么接下来才会顺利执行我们此函数中的一系列操作。
+	以上纯属玩笑！虽然你们傻不拉几的，但是爸爸还是爱你们的！
 </p>
 <hr>
 <p style="font-size: 2rem;font-weight:600;text-align:center;">
@@ -439,7 +407,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/" title="JS监听中文输入" target="_blank" rel="external">https://zhouxuan001.github.io/2018/05/25/JS监听中文输入/</a>
+      <a href="https://zhouxuan001.github.io/2018/06/04/手把手教你搭建博客/" title="手把手教你搭建博客" target="_blank" rel="external">https://zhouxuan001.github.io/2018/06/04/手把手教你搭建博客/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -490,12 +458,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/05/25/浅析HTML数据存储/" title="HTML里的数据存储分析"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2018/06/04/微信小程序学习计划-01/" title="微信小程序学习(01)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2018/05/25/JS动态节点绑定/" title="关于一些动态创建的节点无法绑定事件的问题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/05/31/CSS水平垂直居中/" title="CSS完成元素水平垂直居中"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
