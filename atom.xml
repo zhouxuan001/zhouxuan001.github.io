@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhouxuan001.github.io/"/>
-  <updated>2018-06-05T03:25:26.020Z</updated>
+  <updated>2018-06-21T08:00:50.973Z</updated>
   <id>https://zhouxuan001.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每日小记(01)</title>
+    <link href="https://zhouxuan001.github.io/2018/06/21/%E6%AF%8F%E6%97%A5%E5%B0%8F%E8%AE%B0(01)/"/>
+    <id>https://zhouxuan001.github.io/2018/06/21/每日小记(01)/</id>
+    <published>2018-06-21T06:40:00.000Z</published>
+    <updated>2018-06-21T08:00:50.973Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="开发一个转盘游戏时遇到的多终端兼容问题">开发一个转盘游戏时遇到的多终端兼容问题</h2><p>我前端这边写了一个预加载执行函数,就是需要在页面加载完成之后执行这个里面的一系列操作,我在里面执行的是一个调用后端接口的函数,我需要调用这个接口来渲染页面数据。</p><p>但是在ios端运行时,执行调用后端接口时返回的状态一直是error,在安卓那边运行没有一点毛病。</p><p>实在理解不了,也想不出来是什么导致的。</p><p>后面觉得可能是ios中数据加载得比较慢的原因,于是使用一个倒计时来延时执行我们需要在页面完成之后再调用后端接口的函数,于是成功解决了这个问题。</p><h2 id="其他问题">其他问题</h2><p>安卓端那边调用执行调用后端接口后,也出现过接口状态一直是error的情况。</p><p>原因是安卓APP端不支持ajax跨域请求,解决方法是让安卓那边加上支持跨域访问的代码。</p><hr><p style="font-size: 2rem;font-weight:600;text-align:center;">END</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;开发一个转盘游戏时遇到的多终端兼容问题&quot;&gt;
+	开发一个转盘游戏时遇到的多终端兼容问题
+&lt;/h2&gt;
+&lt;p&gt;
+	我前端这边写了一个预加载执行函数,就是需要在页面加载完成之后执行这个里面的一系列操作,我在里面执行的是一个调用后端接口的函数,我需要调用这个接口来渲染页面数
+      
+    
+    </summary>
+    
+      <category term="每日小记" scheme="https://zhouxuan001.github.io/categories/%E6%AF%8F%E6%97%A5%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+      <category term="日常积累" scheme="https://zhouxuan001.github.io/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>手把手教你搭建博客</title>
@@ -227,9 +256,9 @@
     <link href="https://zhouxuan001.github.io/2018/05/23/FirstNight/"/>
     <id>https://zhouxuan001.github.io/2018/05/23/FirstNight/</id>
     <published>2018-05-23T07:05:06.708Z</published>
-    <updated>2018-06-05T02:42:06.490Z</updated>
+    <updated>2018-06-21T08:04:18.509Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。</p></blockquote><h2 id="执行hexo-d命令时报错"><a class="markdownIt-Anchor" href="#执行hexo-d命令时报错"></a> 执行<strong>hexo -d</strong>命令时报错</h2><p>出现类似以下的报错代码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p><p>原来的配置为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>将其修改成如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p><h2 id="每次写完博客后需要执行-hexo-clean-hexo-g-hexo-d-命令上传"><a class="markdownIt-Anchor" href="#每次写完博客后需要执行-hexo-clean-hexo-g-hexo-d-命令上传"></a> 每次写完博客后需要执行 $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 命令上传。</h2><p>不要执行  hexo clean &amp;&amp; hexo g 会清除一些自己创建在 public 目录下的文件(自己添加的grace主题的about模块)。<br>每次修改和上传新博客时，执行 hexo d 命令就行了。</p><h2 id="博客文件地址在-source_posts目录下"><a class="markdownIt-Anchor" href="#博客文件地址在-source_posts目录下"></a> 博客文件地址在 source/_posts/目录下。</h2><h2 id="网络博客主题模板"><a class="markdownIt-Anchor" href="#网络博客主题模板"></a> 网络博客主题模板：</h2><h3 id="更换模板方法例更换-grace-模板"><a class="markdownIt-Anchor" href="#更换模板方法例更换-grace-模板"></a> 更换模板方法(例：更换 grace 模板)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/buhuo00/hexo-theme-grace themes/grace</span><br></pre></td></tr></table></figure><p>再到_config.yml配置文件中修改模板参数theme为  theme： grace</p><hr><p style="font-size: 2rem;text-align:center;">END</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。</p></blockquote><blockquote><p>参考博客主题：<a href="https://blog.cofess.com/" target="_blank" rel="noopener">https://blog.cofess.com/</a></p></blockquote><h2 id="执行hexo-d命令时报错"><a class="markdownIt-Anchor" href="#执行hexo-d命令时报错"></a> 执行<strong>hexo -d</strong>命令时报错</h2><p>出现类似以下的报错代码：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF <span class="keyword">in</span> 2015/12/05/hello-world/index.html.</span><br><span class="line">The file will have its original line endings <span class="keyword">in</span> your working directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>此问题的解决方法是：修改根目录下的配置文件_config.yml，修改deploy节点。</p><p>原来的配置为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>将其修改成如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://&#123;myname&#125;：&#123;mypassword&#125;@github.com/&#123;myname&#125;/&#123;myname&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p>如此，便解决了执行<strong>hexo -d</strong>命令时报错的问题。</p><h2 id="每次写完博客后需要执行-hexo-clean-hexo-g-hexo-d-命令上传"><a class="markdownIt-Anchor" href="#每次写完博客后需要执行-hexo-clean-hexo-g-hexo-d-命令上传"></a> 每次写完博客后需要执行 $ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 命令上传。</h2><p>不要执行  hexo clean &amp;&amp; hexo g 会清除一些自己创建在 public 目录下的文件(自己添加的grace主题的about模块)。<br>每次修改和上传新博客时，执行 hexo d 命令就行了。</p><h2 id="博客文件地址在-source_posts目录下"><a class="markdownIt-Anchor" href="#博客文件地址在-source_posts目录下"></a> 博客文件地址在 source/_posts/目录下。</h2><h2 id="网络博客主题模板"><a class="markdownIt-Anchor" href="#网络博客主题模板"></a> 网络博客主题模板：</h2><h3 id="更换模板方法例更换-grace-模板"><a class="markdownIt-Anchor" href="#更换模板方法例更换-grace-模板"></a> 更换模板方法(例：更换 grace 模板)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/buhuo00/hexo-theme-grace themes/grace</span><br></pre></td></tr></table></figure><p>再到_config.yml配置文件中修改模板参数theme为  theme： grace</p><hr><p style="font-size: 2rem;text-align:center;">END</p>]]></content>
     
     <summary type="html">
     
@@ -238,7 +267,8 @@
         &lt;blockquote&gt;
 &lt;p&gt;今天根据网上教程创建了属于自己的个人博客，在这期间遇到了一些问题。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;执行hexo-d命令时报错&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#执行hexo-d命令时报错
+&lt;blockquote&gt;
+&lt;p&gt;参考博客主题：&lt;a href=&quot;https://blog.cofess.com/&quot; target=&quot;_blank
       
     
     </summary>

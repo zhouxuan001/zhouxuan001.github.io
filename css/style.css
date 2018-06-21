@@ -6426,6 +6426,9 @@ body.no-sidebar .sidebar {
 .article-header {
   margin-bottom: 20px;
 }
+.article-header .article-title,.article-header .article-meta{
+	text-align: center;
+}
 
 .article-footer {
   margin-top: 20px;
