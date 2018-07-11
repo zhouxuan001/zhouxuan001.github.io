@@ -6500,10 +6500,19 @@ body.no-sidebar .sidebar {
   margin-top: 16px;
   margin-bottom: 10px;
   font-weight: 600;
-  text-indent: 2em;
   color:#4f4f4f;
   line-height: 1.5em;
 }
+
+.h3_1:before{content: "1.";}
+.h3_2:before{content: "2.";}
+.h3_3:before{content: "3.";}
+.h3_4:before{content: "4.";}
+.h3_5:before{content: "5.";}
+.h3_6:before{content: "6.";}
+.h3_7:before{content: "7.";}
+.h3_8:before{content: "8.";}
+.h3_9:before{content: "9.";}
 
 .markdown-body h1 {
   padding-bottom: 0.3em;
