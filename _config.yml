@@ -76,9 +76,9 @@ pagination_dir: page
 theme: pure
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/deployment.html  配置 用户名:密码
 deploy:
   type: git
-  repo: https://2cf0e6a5a727beb754ea651678c15c3653a5395c@github.com/zhouxuan001/zhouxuan001.github.io.git/
+  repo: https://zhouxuan001:zhou1995.@github.com/zhouxuan001/zhouxuan001.github.io.git/
   branch: master
   
