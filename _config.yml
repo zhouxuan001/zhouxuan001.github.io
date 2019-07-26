@@ -79,6 +79,6 @@ theme: pure
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://2cf0e6a5a727beb754ea651678c15c3653a5395c@github.com/zhouxuan001/zhouxuan001.github.io.git/
+  repo: git@github.com:zhouxuan001/zhouxuan001.github.io.git
   branch: master
   
