@@ -643,11 +643,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
 <script src="https://www.wenjunjiang.win/js/gitment.js"></script>
 <script>
+  console.log(window.decodeURIComponent(window.location.pathname))
 var gitment = new Gitment({
   // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
   // https://github.com/imsun/gitment/issues/55
   // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: '响应式开发(01)', 
+  id: window.decodeURIComponent(window.location.pathname), 
   owner: 'zhouxuan001', // 可以是你的GitHub用户名，也可以是github id
   repo: 'zhouxuan001.github.io',
   oauth: {
