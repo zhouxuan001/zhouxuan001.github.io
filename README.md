@@ -1,2 +1,3 @@
-# 这是一个来自周璇的个人博客项目！
-# This is a personal blog project from zhou xuan!
+# 个人博客
+ > 平时写一些遇到的问题和解决方案
+ > 分享一些学习经验
