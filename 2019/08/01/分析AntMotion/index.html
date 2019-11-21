@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta name="referrer" content="never">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>Ant Motion动效插件分析 | 周璇的个人博客</title>
+  <meta name="description" content="Ant Motion动效插件分析  一、原理分析 特效是通过组件内部的js和css两者共同控制。 通过调用封装的组件，部署组件DOM结构和其上面的参数完成动画效果的添加，同时用户可以更改组件的参数以及自定义组件的样式来实现所需要的展示效果。 使用起来比较方便，应用场景明确有针对性，但是工作量大，适合团队开发。  二、方案分析 （1）：第一种方案是可以尝试在110项目的基础上以类似Ant Moti">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ant Motion动效插件分析">
+<meta property="og:url" content="https://zhouxuan001.github.io/2019/08/01/分析AntMotion/index.html">
+<meta property="og:site_name" content="周璇的个人博客">
+<meta property="og:description" content="Ant Motion动效插件分析  一、原理分析 特效是通过组件内部的js和css两者共同控制。 通过调用封装的组件，部署组件DOM结构和其上面的参数完成动画效果的添加，同时用户可以更改组件的参数以及自定义组件的样式来实现所需要的展示效果。 使用起来比较方便，应用场景明确有针对性，但是工作量大，适合团队开发。  二、方案分析 （1）：第一种方案是可以尝试在110项目的基础上以类似Ant Moti">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-02T02:57:13.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ant Motion动效插件分析">
+<meta name="twitter:description" content="Ant Motion动效插件分析  一、原理分析 特效是通过组件内部的js和css两者共同控制。 通过调用封装的组件，部署组件DOM结构和其上面的参数完成动画效果的添加，同时用户可以更改组件的参数以及自定义组件的样式来实现所需要的展示效果。 使用起来比较方便，应用场景明确有针对性，但是工作量大，适合团队开发。  二、方案分析 （1）：第一种方案是可以尝试在110项目的基础上以类似Ant Moti">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhouxuan001.github.io/2019/08/01/分析AntMotion/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周璇的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+        <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+    
+    
+
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhouxuan001" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar02.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">周璇</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发 &amp; 互联网</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 广东深圳 , 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zhouxuan001" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5367513635" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>如经年,如隔世,从何谈起!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/分享教程/">分享教程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习计划/">学习计划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/每日小记/">每日小记</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式开发/">响应式开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序了解一哈/">微信小程序了解一哈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常积累/">日常积累</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/06/特效组件流程分析/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/06/特效组件流程分析/" class="title">特效组件流程分析</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-06T03:55:12.852Z" itemprop="datePublished">2019-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/02/将做好的前端组件制作成npm包发布/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/02/将做好的前端组件制作成npm包发布/" class="title">将做好的前端组件制作成npm包发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-02T08:22:18.289Z" itemprop="datePublished">2019-08-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/01/分析AntMotion/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/01/分析AntMotion/" class="title">Ant Motion动效插件分析</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-01T02:38:17.958Z" itemprop="datePublished">2019-08-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/07/29/iconfont矢量图标旋转晃动/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/07/29/iconfont矢量图标旋转晃动/" class="title">iconfont矢量图标旋转晃动</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-29T08:02:36.500Z" itemprop="datePublished">2019-07-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/07/25/今天创建了个人博客/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/07/25/今天创建了个人博客/" class="title">今天创建了个人博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-25T09:37:08.379Z" itemprop="datePublished">2019-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-分析AntMotion" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ant Motion动效插件分析
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/08/01/分析AntMotion/" class="article-date">
+	  <time datetime="2019-08-01T02:38:17.958Z" itemprop="datePublished">2019-08-01日</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/JS/">JS</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/08/01/分析AntMotion/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 695(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="ant-motion动效插件分析"><a class="markdownIt-Anchor" href="#ant-motion动效插件分析"></a> Ant Motion动效插件分析</h3>
+<h2 id="一-原理分析"><a class="markdownIt-Anchor" href="#一-原理分析"></a> 一、原理分析</h2>
+<p>特效是通过组件内部的js和css两者共同控制。</p>
+<p>通过调用封装的组件，部署组件DOM结构和其上面的参数完成动画效果的添加，同时用户可以更改组件的参数以及自定义组件的样式来实现所需要的展示效果。</p>
+<p>使用起来比较方便，应用场景明确有针对性，但是工作量大，适合团队开发。</p>
+<h2 id="二-方案分析"><a class="markdownIt-Anchor" href="#二-方案分析"></a> 二、方案分析</h2>
+<p>（1）：第一种方案是可以尝试在110项目的基础上以类似Ant Motion的特效制作成组件，封装组件的dom节点和样式，以及添加一些组件的事件，初步可以添加一些类似弹窗特效，表格增删特效，按钮点击特效之类。</p>
+<pre><code>例：&lt;QueueAnim type={['right', 'left']} ease={['easeOutQuart', 'easeInOutQuart']}&gt;&lt;/QueueAnim&gt;
+</code></pre>
+<p>（2）：第二种方案可以用只封装动画效果的方法制作动效组件库，纯css样式组件。通过给要加动效的元素添加指定的class类名来展示特效。比如hover添加了指定类名(如:hv-fadeIn)的元素时执行动效。</p>
+<pre><code>例：&lt;div class=&quot;hv-fadeIn&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>（3）：第三种方案可以制作一个纯js组件，动效样式通过用户自定义。通过封装的方法给元素绑定特效，可以兼顾到hover和click两中交互效果，也可以只执行一次设定的动效。</p>
+<pre><code>例：go函数参数：绑定元素，触发方式option(hover/click)，动画效果(分为transition和animation两种)，动画时间，执行过渡的线性效果(支持cubic-bezier)，动效完成回调函数，延迟时间
+go(dom元素,option,{ css属性：css值},transitionDuration(单位：毫秒),transitionTiming,transitionend回调函数,transitionDelay单位：毫秒);
+go(dom元素,option,keyframesName,animationDuration,animationTiming,animationend回调函数,animationDelay单位：毫秒);
+</code></pre>
+<h2 id="三-主流动态分类"><a class="markdownIt-Anchor" href="#三-主流动态分类"></a> 三、主流动态分类</h2>
+<p>hover/点击特效：(hover类特效更适用于PC端，因为移动设备中并没有鼠标指针，移动端适合用点击类效果)</p>
+<pre><code>（1）：元素的2D变换(放大缩小；扭动弹跳；晃动变形)
+（2）：元素背景的填充与文字颜色变化
+（3）：icon图标变换
+（4）：shadow阴影特效(元素升高地面出现阴影)
+（5）：按钮特效（button的点击交互；radio之类的单选复选框选中效果）
+（6）：弹出特效（select下拉框的拉开收起特效；dialog/modal弹框特效）
+</code></pre>
+<p>其它特效：</p>
+<pre><code>（1）：出场特效（可以用于一些项目首页，滚动到对应楼层时添加出场动画，执行各种过渡组合特效）
+（2）：元素添加/删除特效(如：项目中一些表格列表和分支的创建和删除可以适用)
+</code></pre>
+<hr>
+<p style="font-size: 2rem;font-weight:600;text-align:center;">
+	END
+</p>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhouxuan001.github.io/2019/08/01/分析AntMotion/" title="Ant Motion动效插件分析" target="_blank" rel="external">https://zhouxuan001.github.io/2019/08/01/分析AntMotion/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhouxuan001" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar02.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhouxuan001" target="_blank"><span class="text-dark">周璇</span><small class="ml-1x">前端开发 &amp; 互联网</small></a></h3>
+        <div>在每个银河坠入山谷的梦里，我会醒来，也忘记梦境...</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjc1NC8xMzI4OQ==">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/08/02/将做好的前端组件制作成npm包发布/" title="将做好的前端组件制作成npm包发布"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/07/29/iconfont矢量图标旋转晃动/" title="iconfont矢量图标旋转晃动"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zhouxuan001" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5367513635" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	The themes is provided by <a href="https://github.com/zhouxuan001" target="_blank"> zhouxuan </a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+    
+    
+
+
+
+</body>
+</html>

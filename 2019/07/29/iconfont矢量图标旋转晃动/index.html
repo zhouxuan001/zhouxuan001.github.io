@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta name="referrer" content="never">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>iconfont矢量图标旋转晃动 | 周璇的个人博客</title>
+  <meta name="description" content="标签：css3 前端 iconfont旋转 iconfont字体图标 旋转动画晃动   问题描述：项目中使用了iconfont字体图标做旋转动画，就是类似loading加载之类的动效，发现转动起来会出现晃动问题，仔细看会发现它并不是中心旋转(一开始没注意，放大看的时候才发现的)。  晃动情况如图一：  	图一（晃动效果）   而我们想要的效果如图二：  	图二（正确效果）   先上代码： 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iconfont矢量图标旋转晃动">
+<meta property="og:url" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/index.html">
+<meta property="og:site_name" content="周璇的个人博客">
+<meta property="og:description" content="标签：css3 前端 iconfont旋转 iconfont字体图标 旋转动画晃动   问题描述：项目中使用了iconfont字体图标做旋转动画，就是类似loading加载之类的动效，发现转动起来会出现晃动问题，仔细看会发现它并不是中心旋转(一开始没注意，放大看的时候才发现的)。  晃动情况如图一：  	图一（晃动效果）   而我们想要的效果如图二：  	图二（正确效果）   先上代码： 123">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/loading-error.gif">
+<meta property="og:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/loading.gif">
+<meta property="og:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/111.png">
+<meta property="og:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/查看图标父元素i标签属性.png">
+<meta property="og:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/查看icon图标属性.png">
+<meta property="og:updated_time" content="2019-08-02T08:07:49.200Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iconfont矢量图标旋转晃动">
+<meta name="twitter:description" content="标签：css3 前端 iconfont旋转 iconfont字体图标 旋转动画晃动   问题描述：项目中使用了iconfont字体图标做旋转动画，就是类似loading加载之类的动效，发现转动起来会出现晃动问题，仔细看会发现它并不是中心旋转(一开始没注意，放大看的时候才发现的)。  晃动情况如图一：  	图一（晃动效果）   而我们想要的效果如图二：  	图二（正确效果）   先上代码： 123">
+<meta name="twitter:image" content="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/loading-error.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="周璇的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+        <link href="https://cdn.bootcss.com/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+    
+    
+
+</head>
+
+
+<body class="main-center theme-purple no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhouxuan001" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar02.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">周璇</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发 &amp; 互联网</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 广东深圳 , 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zhouxuan001" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5367513635" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>如经年,如隔世,从何谈起!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/分享教程/">分享教程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端开发/">前端开发</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习计划/">学习计划</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/每日小记/">每日小记</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式开发/">响应式开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信小程序了解一哈/">微信小程序了解一哈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常积累/">日常积累</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/06/特效组件流程分析/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/06/特效组件流程分析/" class="title">特效组件流程分析</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-06T03:55:12.852Z" itemprop="datePublished">2019-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/02/将做好的前端组件制作成npm包发布/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/02/将做好的前端组件制作成npm包发布/" class="title">将做好的前端组件制作成npm包发布</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-02T08:22:18.289Z" itemprop="datePublished">2019-08-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/08/01/分析AntMotion/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/08/01/分析AntMotion/" class="title">Ant Motion动效插件分析</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-08-01T02:38:17.958Z" itemprop="datePublished">2019-08-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/07/29/iconfont矢量图标旋转晃动/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/前端开发/">前端开发</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/07/29/iconfont矢量图标旋转晃动/" class="title">iconfont矢量图标旋转晃动</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-29T08:02:36.500Z" itemprop="datePublished">2019-07-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2019/07/25/今天创建了个人博客/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/07/25/今天创建了个人博客/" class="title">今天创建了个人博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-25T09:37:08.379Z" itemprop="datePublished">2019-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-iconfont矢量图标旋转晃动" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iconfont矢量图标旋转晃动
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/07/29/iconfont矢量图标旋转晃动/" class="article-date">
+	  <time datetime="2019-07-29T08:02:36.500Z" itemprop="datePublished">2019-07-29日</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/前端开发/">前端开发</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/07/29/iconfont矢量图标旋转晃动/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,486(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>标签：css3 前端 iconfont旋转 iconfont字体图标 旋转动画晃动</p>
+</blockquote>
+<h2 id="问题描述项目中使用了iconfont字体图标做旋转动画就是类似loading加载之类的动效发现转动起来会出现晃动问题仔细看会发现它并不是中心旋转一开始没注意放大看的时候才发现的"><a class="markdownIt-Anchor" href="#问题描述项目中使用了iconfont字体图标做旋转动画就是类似loading加载之类的动效发现转动起来会出现晃动问题仔细看会发现它并不是中心旋转一开始没注意放大看的时候才发现的"></a> 问题描述：项目中使用了iconfont字体图标做旋转动画，就是类似loading加载之类的动效，发现转动起来会出现晃动问题，仔细看会发现它并不是中心旋转(一开始没注意，放大看的时候才发现的)。</h2>
+<h3 id="晃动情况如图一"><a class="markdownIt-Anchor" href="#晃动情况如图一"></a> 晃动情况如图一：</h3>
+<div style="width:50%;margin:0 auto;text-align:center;color:#c5c5c5;">
+	<img src="/2019/07/29/iconfont矢量图标旋转晃动/loading-error.gif" style="width:70%;"><p class="img-info">图一（晃动效果）</p>
+</div>
+<h3 id="而我们想要的效果如图二"><a class="markdownIt-Anchor" href="#而我们想要的效果如图二"></a> 而我们想要的效果如图二：</h3>
+<div style="width:50%;margin:0 auto;text-align:center;color:#c5c5c5;">
+	<img src="/2019/07/29/iconfont矢量图标旋转晃动/loading.gif" style="width:70%;"><p class="img-info">图二（正确效果）</p>
+</div>
+<h3 id="先上代码"><a class="markdownIt-Anchor" href="#先上代码"></a> 先上代码：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- css样式如下(引入的stylesheet.css是从iconfont下载下来的矢量图标库样式文件) --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;stylesheet.css&quot;&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .iconfont &#123;</span><br><span class="line">        font-family: &quot;iconfont&quot; !important;</span><br><span class="line">        font-size: 16px;</span><br><span class="line">        font-style: normal;</span><br><span class="line">        -webkit-font-smoothing: antialiased;</span><br><span class="line">        -moz-osx-font-smoothing: grayscale;</span><br><span class="line">    &#125;</span><br><span class="line">    .icon-181:before &#123;</span><br><span class="line">        content: &quot;\e631&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    .icon-181&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top: 27px;</span><br><span class="line">        left: 22px;</span><br><span class="line">        font-size: 20px;</span><br><span class="line">        line-height: 1;</span><br><span class="line">        color: #275CF0;</span><br><span class="line">        animation: loading-spin 1s linear infinite;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes loading-spin &#123;</span><br><span class="line">        0% &#123;</span><br><span class="line">        -webkit-transform: rotate(0deg);</span><br><span class="line">        transform: rotate(0deg);</span><br><span class="line">        &#125;</span><br><span class="line">        to &#123;</span><br><span class="line">        -webkit-transform: rotate(1turn);</span><br><span class="line">        transform: rotate(1turn);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;!-- html结构如下 --&gt;</span><br><span class="line">&lt;i class=&quot;iconfont icon-181&quot;&gt;&lt;/i&gt;</span><br></pre></td></tr></table></figure>
+<p class="no_indent">多番尝试一直没能解决晃动问题，很蓝瘦。。。</p>
+<p class="no_indent">一直安利的百度大法也没能帮我解决，后琢磨了很久才找到解决办法。</p>
+<div style="display:flex;">
+	<p class="no_indent">有感爬坑不易，特此发文分享给各位大佬。</p>
+	<img src="/2019/07/29/iconfont矢量图标旋转晃动/111.png" style="width:10%;">
+</div>
+<h3 id="那么废话不多说下面分享一下我解决这个问题的过程吧"><a class="markdownIt-Anchor" href="#那么废话不多说下面分享一下我解决这个问题的过程吧"></a> 那么，废话不多说，下面分享一下我解决这个问题的过程吧：</h3>
+<h4 id="1初步尝试"><a class="markdownIt-Anchor" href="#1初步尝试"></a> 1.初步尝试</h4>
+<p>
+    首先我参考百度上的一些说法尝试了设置旋转中心点(transform-origin)、设置定位(position)、浮动(float)、以及使用translateZ(0)进行旋转渲染。
+    结果发现并没有什么效果。
+</p>
+<p style="margin-bottom:0px;">
+    然后转而又测试使用从iconfont图标库下载下来的png图片(项目中使用的这个矢量图标的原版图片)来做animation旋转动效，发现旋转起来是没有出现晃动问题的。
+    这个svg图像做成图片不会出现晃动，那么问题到底出在哪里呢？让我们继续探索。
+    <!-- <span style="font-size: 0.8em;color: #928f8f;">(PS:项目中使用的图标是将svg图像传到iconfont网站处理以后，然后导出为字体矢量图标运用到项目中。)</span> -->
+</p>
+<p class="p-info">(PS:页面中使用的图标是将svg图像传到iconfont网站处理以后，然后导出为字体矢量图标引用到页面中。)</p>
+<h4 id="2问题探索"><a class="markdownIt-Anchor" href="#2问题探索"></a> 2.问题探索</h4>
+<div class="passages"><!--passages：段落专用div类标签，里面p标签上下边距缩小-->
+<p>
+	经我打开控制台仔细查看发现，我给这个icon-181元素
+    <span class="inner-info">(即这个字体矢量图标的父元素)</span>设置的font-size是20px，可是显示的字体矢量图标元素大小却是20*21。
+    按说应该是20*20的，这个矢量图标却莫名的多出了1px的像素高度。
+</p>
+<p>
+觉得可能是这个问题导致的旋转晃动，这种情况有可能是它做成iconfont字体矢量图标运用后出现的。
+</p>
+<p>
+详情见下面的两张属性图：矢量图标的父元素属性图(图三) 和 矢量图标在页面中的属性图(图四)
+</p>
+</div>
+<div style="text-align:center;color:#c5c5c5;display:flex;align-items:center;">
+	<div style="width:45%;margin:0 2%;"><img src="/2019/07/29/iconfont矢量图标旋转晃动/查看图标父元素i标签属性.png"><p class="img-info">图三（矢量图标父元素属性图）</p></div>
+	<div style="width:45%;margin:0 2%;"><img src="/2019/07/29/iconfont矢量图标旋转晃动/查看icon图标属性.png"><p class="img-info">图四（矢量图标属性图）</p></div>
+</div>
+<p class="p-info">
+    (PS:并不一定只是在font-size为20px时会出现这种问题，大家可以自行调整font-size的大小测试会出现问题的font-size值为多少，
+    调整font-size直到出现元素大小与设置的font-size尺寸不一致的情况时。比如：设置到font-size为22px时，
+    before添加的元素大小变成了22*23,而并不是标准的22*22时，给它添加旋转动画，也会出现晃动问题。)
+</p>
+<p>
+期间，我试探出了一个能勉强解决的办法。
+我在控制台调整矢量图标的父元素icon-181的字体大小font-size一直增加到24px后，发现里面通过before添加的这个矢量图标元素大小也显示为24*24了，
+旋转起来也没有再出现晃动现象，可以解决这个问题。
+但是我这个项目明确要求的是20px的图标，所以这个方案也只能舍弃。
+</p>
+<h3 id="那么到底是什么原因导致它会多出1px渲染呢是不是我使用的这个svg图像有问题导致了它转换成字体矢量图标以后出现了这样的情况继续开始测试"><a class="markdownIt-Anchor" href="#那么到底是什么原因导致它会多出1px渲染呢是不是我使用的这个svg图像有问题导致了它转换成字体矢量图标以后出现了这样的情况继续开始测试"></a> 那么，到底是什么原因导致它会多出1px渲染呢？是不是我使用的这个svg图像有问题，导致了它转换成字体矢量图标以后出现了这样的情况？继续开始测试：</h3>
+<h4 id="part-1怀疑是图像尺寸导致的矢量图标渲染出现拉伸"><a class="markdownIt-Anchor" href="#part-1怀疑是图像尺寸导致的矢量图标渲染出现拉伸"></a> &gt; part-1(怀疑是图像尺寸导致的矢量图标渲染出现拉伸)</h4>
+<p>
+让设计师发了几个尺寸不一的loading图素材进行测试，分别是10*10 20*20 30*30 40*40尺寸的svg图标，
+将其导入到iconfont网站再下载下来做成字体样式，想看看是否是图标尺寸导致的问题。经测试无效，阵亡。。。
+</p>
+<h4 id="part-2怀疑是这个图像的圆不够标准"><a class="markdownIt-Anchor" href="#part-2怀疑是这个图像的圆不够标准"></a> &gt; part-2(怀疑是这个图像的圆不够标准)</h4>
+<p>尝试用iconfont图标库上其它的一些loading圆环图标，包括一些官方图标进行测试。测试结果是一样的晃~。over,就这个fell！倍儿爽！</p>
+<h4 id="part-3觉得是阿里iconfont图标库的通病改用别的图标库"><a class="markdownIt-Anchor" href="#part-3觉得是阿里iconfont图标库的通病改用别的图标库"></a> &gt; part-3(觉得是阿里iconfont图标库的通病，改用别的图标库)</h4>
+<div class="passages"><!--passages：段落专用div类标签，里面p标签上下边距缩小-->
+<p>后面在网上看到有人说可能是阿里图标不稳定，没有做高度固定，然后我找了一款国外icon制作网站，叫做 <a href="https://icomoon.io/" title="https://icomoon.io/" target="_blank" rel="noopener">icomoon</a> 。</p>
+<p>将使用的这个图标的SVG图像导入这个网站生成了一遍，把从这个网站下载下来的字体样式加载到我这里使用。</p>
+<p>
+引入字体样式进来以后，查看矢量图标元素大小。没问题，是标准的20*20了(我们设置的font-size为20px,所以元素的大小应该是20*20)，很开心。
+然后，给它启用旋转动画跑起来，跑的是挺欢的，但是，它又飘了~(好吧，又是一次失败的尝试)。
+</p>
+<p>
+那么，看一下是怎么导致的吧。
+调整font-size从20px一直到24px，期间元素大小没什么问题，直到24px的时候，发现里面的图标元素大小变为了24*25，也出现了这种多出1px的高度的问题。
+</p>
+</div>
+<p><a href="https://www.npmjs.com/settings/064ybhsi/password" target="_blank" rel="noopener">https://www.npmjs.com/settings/064ybhsi/password</a></p>
+<!-- <p>jQuery中hover()方法如下 ：</p> -->
+<hr>
+<p style="font-size: 2rem;font-weight:600;text-align:center;">
+	END
+</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/" title="iconfont矢量图标旋转晃动" target="_blank" rel="external">https://zhouxuan001.github.io/2019/07/29/iconfont矢量图标旋转晃动/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhouxuan001" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar02.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhouxuan001" target="_blank"><span class="text-dark">周璇</span><small class="ml-1x">前端开发 &amp; 互联网</small></a></h3>
+        <div>在每个银河坠入山谷的梦里，我会醒来，也忘记梦境...</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjc1NC8xMzI4OQ==">
+  <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+      
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/08/01/分析AntMotion/" title="Ant Motion动效插件分析"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/07/25/今天创建了个人博客/" title="今天创建了个人博客"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zhouxuan001" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/5367513635" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	The themes is provided by <a href="https://github.com/zhouxuan001" target="_blank"> zhouxuan </a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+<script defer type="text/javascript">
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+
+    if (typeof LivereTower === 'function') { return; }
+
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+
+    
+    
+
+
+
+</body>
+</html>

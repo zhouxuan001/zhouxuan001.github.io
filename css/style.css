@@ -6504,15 +6504,15 @@ body.no-sidebar .sidebar {
   line-height: 1.5em;
 }
 
-.h3_1:before{content: "1.";}
-.h3_2:before{content: "2.";}
-.h3_3:before{content: "3.";}
-.h3_4:before{content: "4.";}
-.h3_5:before{content: "5.";}
-.h3_6:before{content: "6.";}
-.h3_7:before{content: "7.";}
-.h3_8:before{content: "8.";}
-.h3_9:before{content: "9.";}
+.title_1:before{content: "1.";}
+.title_2:before{content: "2.";}
+.title_3:before{content: "3.";}
+.title_4:before{content: "4.";}
+.title_5:before{content: "5.";}
+.title_6:before{content: "6.";}
+.title_7:before{content: "7.";}
+.title_8:before{content: "8.";}
+.title_9:before{content: "9.";}
 
 .markdown-body h1 {
   padding-bottom: 0.3em;
@@ -6548,6 +6548,25 @@ body.no-sidebar .sidebar {
   font-size: 1.65rem;
   color:#666666;
   line-height: 1.5em;
+}
+.markdown-body p.no_indent{
+  text-indent: 0;
+}
+.markdown-body .img-info{
+  margin-top: 1em;
+  font-size: 1em;
+  color: #928f8f;
+}
+.markdown-body .p-info{
+  font-size: 1em;
+  color: #928f8f;
+}
+.markdown-body .inner-info{
+  font-size: 0.85em;
+  color: #928f8f;
+}
+.markdown-body .red{
+  color: #fc625d;
 }
 .markdown-body .passages{
   margin-top: 10px;
